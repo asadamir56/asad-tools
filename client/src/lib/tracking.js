@@ -61,7 +61,7 @@ export function recordOrder(user, product) {
     planMonths: product.duration == null ? null : String(product.duration),
     price: product.price ?? null,
     whatsappOrder: true,
-    paymentMethod: "Easypaisa",
+    paymentMethod: "WhatsApp",
     userId: user?.id || null,
   });
 }
