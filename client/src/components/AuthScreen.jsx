@@ -62,9 +62,17 @@ export default function AuthScreen({ onLogin }) {
         setMsg("Ye email/number pehle se registered hai — Login karein."); return;
       }
       // 1) Supabase Auth (if configured)  2) Node API  3) browser registry fallback
+      // Unlimited: if Supabase email rate-limit (or any Supabase error) hits,
+      // fall back to the local account — signup never stops for email limits.
       if (supabaseConfigured) {
         const { error } = await supabase.auth.signUp({ email: email.toLowerCase(), password, options: { data: { name, phone } } });
-        if (error) { setMsg("Supabase: " + error.message); return; }
+        if (error) {
+          if (String(error.message || "").toLowerCase().includes("rate limit")) {
+            setMsg("Supabase email limit full hai — local account se register ho raha hai, koi email nahi jayegi.");
+          } else {
+            setMsg("Supabase: " + error.message + " — local account se register ho raha hai.");
+          }
+        }
       } else {
         try { await fetch("/api/auth/register", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, password, name, phone }) }); } catch { /* server optional in static preview */ }
       }
@@ -81,9 +89,13 @@ export default function AuthScreen({ onLogin }) {
     if (!username || !password) { setMsg("Username aur Password likhein."); return; }
     if (supabaseConfigured && isEmail(username)) {
       const { data, error } = await supabase.auth.signInWithPassword({ email: username.toLowerCase(), password });
-      if (error) { setMsg("Login nahi hua: " + error.message); return; }
-      const user = { email: data.user.email, name: data.user.user_metadata?.name || data.user.email, phone: data.user.user_metadata?.phone || "" };
-      saveSession(user); recordLogin(user, "email"); onLogin(user); return;
+      if (!error) {
+        const user = { email: data.user.email, name: data.user.user_metadata?.name || data.user.email, phone: data.user.user_metadata?.phone || "" };
+        saveSession(user); recordLogin(user, "email"); onLogin(user); return;
+      }
+      // Unlimited: Supabase error (rate limit, unconfirmed email, etc.) —
+      // try the local account instead of stopping the login.
+      setMsg("Supabase login nahi hua (" + error.message + ") — local account se try ho raha hai.");
     }
     const accounts = loadAccounts();
     const acc = accounts.find((a) => a.email === username.toLowerCase() || a.phone === username);
