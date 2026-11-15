@@ -2,9 +2,9 @@ import { useState } from "react";
 import { supabase, supabaseConfigured } from "../lib/supabaseClient.js";
 
 // Asad Tools — Owner Admin page.
-// Password: asadtools (owner can change it here, then push again).
+// Password: 6767 (owner can change it here, then push again).
 // Shows: total users, logins, visits, orders — and who bought Muse.
-const ADMIN_PASSWORD = "asadtools";
+const ADMIN_PASSWORD = "6767";
 
 export default function AdminScreen({ onBack }) {
   const [password, setPassword] = useState("");
