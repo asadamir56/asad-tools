@@ -1,0 +1,67 @@
+/* Asad Tools — warm paper, deep teal + gold. Professional, human-made look. */
+:root {
+  --paper: #f4f1ea;
+  --paper-dot: #e8e2d4;
+  --teal: #123332;
+  --teal-dark: #0b1f1a;
+  --gold: #c9a227;
+  --gold-soft: #e8d27a;
+  --ink: #1c1c1c;
+  --muted: #5c5c55;
+  --card: #fffdf8;
+  --line: #ddd5c2;
+  --green: #0b7a5c;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Archivo", system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  background-image: radial-gradient(var(--paper-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+h1, h2, h3, .serif { font-family: "Source Serif 4", Georgia, serif; }
+a { color: var(--teal); }
+button { font-family: inherit; cursor: pointer; }
+input { font-family: inherit; font-size: 1rem; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; width: 100%; background: #fff; }
+label { font-size: 0.92rem; font-weight: 600; display: block; margin: 14px 0 6px; }
+.topbar { background: var(--teal); color: #fff; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.topbar .brand { font-family: "Source Serif 4", serif; font-size: 1.5rem; font-weight: 800; }
+.topbar .brand span { color: var(--gold-soft); }
+.btn { border: none; border-radius: 10px; padding: 12px 18px; font-weight: 700; }
+.btn-gold { background: var(--gold); color: #1c1c1c; }
+.btn-teal { background: var(--teal); color: #fff; }
+.btn-green { background: var(--green); color: #fff; }
+.btn-outline { background: transparent; border: 1px solid var(--teal); color: var(--teal); }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.durood { text-align: center; padding: 60px 20px; }
+.durood .arabic { font-family: "Amiri", serif; font-size: 2rem; line-height: 1.9; color: var(--teal); }
+.login-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; }
+.login-hero { background: var(--teal); color: #fff; padding: 34px; }
+.login-hero h2 { font-size: 2rem; margin: 0 0 10px; }
+.login-hero .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+.login-hero .stat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: 10px; padding: 12px; text-align: center; }
+.login-hero .stat b { display: block; font-size: 1.25rem; }
+.chip { display: inline-block; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); padding: 6px 10px; border-radius: 20px; margin: 4px 4px 0 0; font-size: .85rem; }
+.login-card { padding: 30px; background: var(--card); }
+.tabs { display: flex; gap: 8px; margin-bottom: 10px; }
+.tabs button { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: #f0ece1; font-weight: 700; }
+.tabs button.active { background: var(--teal); color: #fff; }
+.msg-ok { color: var(--green); font-weight: 600; }
+.msg-err { color: #b3261e; font-weight: 600; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.pills button { border: 1px solid var(--line); background: #fff; padding: 8px 12px; border-radius: 20px; font-weight: 600; }
+.pills button.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.product { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.product .logo { width: 56px; height: 56px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 6px; }
+.product .price { font-size: 1.3rem; font-weight: 800; }
+.product .meta { color: var(--muted); font-size: .9rem; }
+.badge-meta { display: inline-block; background: var(--teal); color: #fff; font-size: .75rem; padding: 3px 8px; border-radius: 20px; }
+.search { max-width: 420px; }
+.footer { background: var(--teal); color: #fff; padding: 26px 20px; margin-top: 40px; text-align: center; }
+@media (max-width: 860px) { .login-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .login-hero .stats { grid-template-columns: 1fr; } .durood .arabic { font-size: 1.5rem; } }
