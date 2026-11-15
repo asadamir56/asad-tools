@@ -1,16 +1,16 @@
 # Asad Tools — React + Node.js + Supabase
 
 Store for digital subscriptions / accounts: Gemini, CapCut, ChatGPT, **Muse by Meta**,
-HeyGen, ElevenLabs aur 40 products. **HTML/CSS single file nahi — ye poora React +
+HeyGen, ElevenLabs aur 69 products. **HTML/CSS single file nahi — ye poora React +
 Node.js project hai, data Supabase me save hota hai.**
 
-Owner: Muhammad Asad · WhatsApp / Easypaisa: **03039929254**
+Owner: Muhammad Asad · WhatsApp: **03039929254**
 
 ## Features (static Asad Tools wali sab kuch)
 - **Durood Pak pehle:** Arabic Durood Sharif, button "Durood Parh Liya — App Kholein"
 - **Login / Register — TechSMMPro-style layout, apne colours (deep teal + gold, orange nahi):**
   left hero (12,000+ Happy Clients, 1,000+ Services, FAST Instant Delivery, payment badges
-  Easypaisa / JazzCash / Bank / VISA / Mastercard / PayPal), right "Welcome back" card
+  JazzCash / Bank / VISA / Mastercard / PayPal), right "Welcome back" card
   (Log In / Create Account tabs, Username, Password Show/Hide, Remember me,
   Forgot password, Sign In, Continue with Google, "New here? Create a free account",
   "Secure, encrypted login")
@@ -20,10 +20,10 @@ Owner: Muhammad Asad · WhatsApp / Easypaisa: **03039929254**
   domain + mail server check. Temp-mail domains reject.
 - **Login sirf registered email/number + sahi password se.** Session browser me save
   (Remember me = localStorage, warna sessionStorage).
-- **40 products, 3 sections** (AI Tools 13, Developer & Team Tools 13, Subscriptions & Plans 14),
+- **69 products, 3 sections** (AI Tools 13, Developer & Team Tools 13, Subscriptions & Plans 14),
   real brand logos, **Muse — by Meta** (blue wavy "M", Anthropic/Claude nahi),
   **month filter "Kitne month wala plan chahiye?"** (Sab, 14 Days, 1/2/3/5/6/12 Months, 2 Years),
-  category filter + search, WhatsApp order, Easypaisa payment. **Koi stock badge / count nahi.**
+  category filter + search, WhatsApp order, WhatsApp order. **Koi stock badge / count nahi.**
 - **Rates:** base + margin (≤ Rs 1,000: +Rs 100; 1,001–2,000: +Rs 200; 2,001–4,000: +Rs 300;
   above: +Rs 500–1,000). Selling price dikhta hai. 2 products (Kling Standard, Adobe Express
   Invites 3M) ki price WhatsApp par hai — koi price invent nahi ki.
@@ -38,7 +38,7 @@ asad-tools-react/
     .env.example
     public/logos/muse.svg        Muse by Meta logo
     src/main.jsx  src/App.jsx  src/index.css
-    src/data/products.js         40 products + margin rule
+    src/data/products.js         69 products + margin rule
     src/lib/supabaseClient.js    Supabase + Gmail/Cloud Verify
     src/components/DuroodScreen.jsx  AuthScreen.jsx  Store.jsx  ProductCard.jsx
   server/                 Node.js + Express backend
@@ -49,7 +49,7 @@ asad-tools-react/
          POST /api/purchases, GET /api/admin/overview
   supabase/
     001_init.sql          profiles, products, orders + RLS + new-user trigger
-    002_seed_products.sql 40 products seed
+    002_seed_products.sql 69 products seed
     003_tracking.sql      login_history, visitors, purchases, user_activity,
                           profiles first/last login + first order + totals,
                           auto-history triggers
@@ -64,8 +64,8 @@ Har cheez Supabase me save hoti hai (003_tracking.sql chalane ke baad):
 | `profiles` | Signup details (naam, email, phone) + **first login, last login, login count, first order, last order, total orders, total spent** |
 | `login_history` | **Kaun login hua** — email/number, time, device/browser, method (email/phone/Google), success |
 | `visitors` | **Kaun web par aaya** — bina login ke bhi: session, page, time, device/browser, referrer |
-| `orders` | **Kaun ne kya order kiya** — buyer naam, email/number, product, category, **plan/months**, price, WhatsApp order, Easypaisa, status |
-| `purchases` | **Kaun ne kya KHARIDA** (confirmed sale) — buyer, product, plan, price, payment reference (Easypaisa TrxID), status paid/delivered |
+| `orders` | **Kaun ne kya order kiya** — buyer naam, email/number, product, category, **plan/months**, price, WhatsApp order, status |
+| `purchases` | **Kaun ne kya KHARIDA** (confirmed sale) — buyer, product, plan, price, payment reference (WhatsApp), status paid/delivered |
 | `user_activity` | **Har user ki poori history** — signup, first login, har login, first order, har order, har purchase, ek timeline me |
 
 Kaise record hota hai: app khulte hi visit record hoti hai (`App.jsx` → `recordVisit`),
