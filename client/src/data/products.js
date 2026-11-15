@@ -1,4 +1,4 @@
-// Asad Tools — 40 products.
+// Asad Tools — 69 products.
 // Prices: Asad's base rate + margin (up to Rs 1,000: +Rs 100;
 // Rs 1,001–2,000: +Rs 200; Rs 2,001–4,000: +Rs 300; above Rs 4,000: +Rs 500–1,000).
 // `price` below is the SELLING price shown to customers. No stock anywhere.
@@ -27,7 +27,36 @@ export const PRODUCTS = [
   { id: 5, name: "CapCut Team 1M", detail: "1200 Credits", category: "AI Tools", duration: 1, basePrice: 600, logo: "/logos/capcut_com.png" },
   { id: 6, name: "HeyGen Creator 1M", detail: "600 Credits", category: "AI Tools", duration: 1, basePrice: 4000, logo: "/logos/heygen_com.png" },
   { id: 7, name: "Duolingo Super 12M", detail: "Coupons", category: "AI Tools", duration: 12, basePrice: 350, logo: "/logos/duolingo.svg" },
-  { id: 8, name: "Muse AI Account", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: 150, logo: "/logos/muse.png", byMeta: true },
+  { id: 8, name: "Muse AI Account 1B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: 150, logo: "/logos/muse.png", byMeta: true },
+  { id: 42, name: "Muse AI Account 2B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 300, logo: "/logos/muse.png", byMeta: true },
+  { id: 43, name: "Muse AI Account 3B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 320, logo: "/logos/muse.png", byMeta: true },
+  { id: 44, name: "Muse AI Account 4B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 350, logo: "/logos/muse.png", byMeta: true },
+  { id: 45, name: "Muse AI Account 5B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 380, logo: "/logos/muse.png", byMeta: true },
+  { id: 46, name: "Muse AI Account 6B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 400, logo: "/logos/muse.png", byMeta: true },
+  { id: 47, name: "Muse AI Account 7B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 430, logo: "/logos/muse.png", byMeta: true },
+  { id: 48, name: "Muse AI Account 8B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 460, logo: "/logos/muse.png", byMeta: true },
+  { id: 49, name: "Muse AI Account 9B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 490, logo: "/logos/muse.png", byMeta: true },
+  { id: 50, name: "Muse AI Account 10B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 520, logo: "/logos/muse.png", byMeta: true },
+  { id: 51, name: "Muse AI Account 11B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 550, logo: "/logos/muse.png", byMeta: true },
+  { id: 52, name: "Muse AI Account 12B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 580, logo: "/logos/muse.png", byMeta: true },
+  { id: 53, name: "Muse AI Account 13B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 600, logo: "/logos/muse.png", byMeta: true },
+  { id: 54, name: "Muse AI Account 14B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 630, logo: "/logos/muse.png", byMeta: true },
+  { id: 55, name: "Muse AI Account 15B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 650, logo: "/logos/muse.png", byMeta: true },
+  { id: 56, name: "Muse AI Account 16B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 680, logo: "/logos/muse.png", byMeta: true },
+  { id: 57, name: "Muse AI Account 17B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 700, logo: "/logos/muse.png", byMeta: true },
+  { id: 58, name: "Muse AI Account 18B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 730, logo: "/logos/muse.png", byMeta: true },
+  { id: 59, name: "Muse AI Account 19B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 750, logo: "/logos/muse.png", byMeta: true },
+  { id: 60, name: "Muse AI Account 20B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 780, logo: "/logos/muse.png", byMeta: true },
+  { id: 61, name: "Muse AI Account 21B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 800, logo: "/logos/muse.png", byMeta: true },
+  { id: 62, name: "Muse AI Account 22B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 830, logo: "/logos/muse.png", byMeta: true },
+  { id: 63, name: "Muse AI Account 23B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 850, logo: "/logos/muse.png", byMeta: true },
+  { id: 64, name: "Muse AI Account 24B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 880, logo: "/logos/muse.png", byMeta: true },
+  { id: 65, name: "Muse AI Account 25B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 900, logo: "/logos/muse.png", byMeta: true },
+  { id: 66, name: "Muse AI Account 26B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 920, logo: "/logos/muse.png", byMeta: true },
+  { id: 67, name: "Muse AI Account 27B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 940, logo: "/logos/muse.png", byMeta: true },
+  { id: 68, name: "Muse AI Account 28B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 960, logo: "/logos/muse.png", byMeta: true },
+  { id: 69, name: "Muse AI Account 29B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 980, logo: "/logos/muse.png", byMeta: true },
+  { id: 70, name: "Muse AI Account 30B", detail: "by Meta · Ready account", category: "AI Tools", duration: null, basePrice: null, fixedPrice: 1000, logo: "/logos/muse.png", byMeta: true },
   { id: 9, name: "ElevenLabs Creator 3M", detail: "", category: "AI Tools", duration: 3, basePrice: 3000, logo: "/logos/elevenlabs.svg" },
   { id: 10, name: "Replit Core 1M", detail: "20$ Credits", category: "AI Tools", duration: 1, basePrice: 900, logo: "/logos/replit.svg" },
   { id: 11, name: "ChatGPT Plus 1M", detail: "20DW", category: "AI Tools", duration: 1, basePrice: 2700, logo: "/logos/openai.svg" },
@@ -60,7 +89,7 @@ export const PRODUCTS = [
   { id: 38, name: "Notion Plus 12M", detail: "", category: "Subscriptions & Plans", duration: 12, basePrice: 800, logo: "/logos/notion.svg" },
   { id: 39, name: "Notion Business 3M", detail: "Coupon", category: "Subscriptions & Plans", duration: 3, basePrice: 400, logo: "/logos/notion.svg" },
   { id: 40, name: "LinkedIn Business 2M", detail: "New User", category: "Subscriptions & Plans", duration: 2, basePrice: 400, logo: "/logos/linkedin.svg" },
-].map((p) => ({ ...p, price: sellingPrice(p.basePrice) }));
+].map((p) => ({ ...p, price: p.fixedPrice ?? sellingPrice(p.basePrice) }));
 
 export const CATEGORIES = ["All", "AI Tools", "Developer & Team Tools", "Subscriptions & Plans"];
 
