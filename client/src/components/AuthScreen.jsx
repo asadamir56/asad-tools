@@ -33,10 +33,10 @@ export default function AuthScreen({ onLogin }) {
     setEmail(v);
     if (!v.includes("@")) { setEmailStatus(""); return; }
     const g = gmailCheck(v);
-    if (!g.ok) { setEmailStatus("✗ " + g.reason); return; }
-    setEmailStatus("✓ Google Gmail — sahi hai. Cloud Verify ho raha hai…");
+    if (!g.ok) { setEmailStatus(g.reason); return; }
+    setEmailStatus("Google Gmail — sahi hai. Cloud Verify ho raha hai…");
     const c = await cloudVerifyEmail(v);
-    setEmailStatus(c.ok ? "✓ Cloud Verified — " + c.reason : "✗ " + c.reason);
+    setEmailStatus(c.ok ? "Cloud Verified — " + c.reason : c.reason);
   }
 
   function saveSession(user) {
@@ -72,7 +72,7 @@ export default function AuthScreen({ onLogin }) {
       accounts.push(user); saveAccounts(accounts);
       saveSession(user);
       recordSignup(user); // who signed up — saved in Supabase
-      setMsgOk(true); setMsg("✓ Registered! Ab aap logged in hain.");
+      setMsgOk(true); setMsg("Registered! Ab aap logged in hain.");
       onLogin(user);
       return;
     }
@@ -92,25 +92,37 @@ export default function AuthScreen({ onLogin }) {
     saveSession(acc); recordLogin(acc, isEmail(username) ? "email" : "phone"); onLogin(acc);
   }
 
+  async function handleGoogle() {
+    if (!supabaseConfigured) { setMsg("Google login ke liye Supabase keys chahiye — pehle .env check karein."); return; }
+    setMsg("Google ki taraf ja rahe hain…");
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: window.location.origin },
+    });
+    if (error) setMsg("Google login nahi hua: " + error.message + " — Supabase Dashboard > Authentication > Providers > Google ON karein.");
+  }
+
   return (
     <div className="wrap">
       <div className="card login-grid" style={{ padding: 0 }}>
         <div className="login-hero">
+          <img className="owner-photo" src="/images/owner-asad.png" alt="Muhammad Asad — Owner, Asad Tools" />
           <h2>Asad Tools</h2>
-          <p>Digital subscriptions &amp; accounts — Gemini, CapCut, ChatGPT, Muse by Meta aur 40+ tools. Order on WhatsApp, pay with Easypaisa.</p>
-          <span className="chip">✓ Secure payments</span>
-          <span className="chip">✓ WhatsApp support</span>
-          <span className="chip">✓ Instant delivery</span>
+          <p><b>Muhammad Asad</b> — Owner</p>
+          <p>Digital subscriptions &amp; accounts — Gemini, CapCut, ChatGPT, Muse by Meta aur 69 tools. Order on WhatsApp.</p>
+          <span className="chip">Secure payments</span>
+          <span className="chip">WhatsApp support</span>
+          <span className="chip">Instant delivery</span>
           <div className="stats">
             <div className="stat"><b>12,000+</b>Happy Clients</div>
             <div className="stat"><b>1,000+</b>Services Available</div>
             <div className="stat"><b>FAST</b>Instant Delivery</div>
           </div>
-          <p style={{ marginTop: 20, fontSize: ".9rem" }}>Easypaisa · JazzCash · Bank Transfer · VISA · Mastercard · PayPal</p>
+          <p style={{ marginTop: 20, fontSize: ".9rem" }}>JazzCash · Bank Transfer · VISA · Mastercard · PayPal</p>
         </div>
 
         <div className="login-card">
-          <h2 style={{ marginTop: 0 }}>Welcome back 👋</h2>
+          <h2 style={{ marginTop: 0 }}>Welcome back</h2>
           <p style={{ color: "#5c5c55" }}>Log in to manage your orders and funds</p>
           <div className="tabs">
             <button className={mode === "login" ? "active" : ""} onClick={() => setMode("login")}>Log In</button>
@@ -120,7 +132,7 @@ export default function AuthScreen({ onLogin }) {
             <label>1 — Email</label>
             <input type="email" name="email" autoComplete="email" placeholder="apka@gmail.com"
               value={email} onChange={(e) => checkEmailLive(e.target.value)} required />
-            {emailStatus && <div className={emailStatus.startsWith("✓") ? "msg-ok" : "msg-err"} style={{ fontSize: ".9rem", marginTop: 6 }}>{emailStatus}</div>}
+            {emailStatus && <div className={emailStatus.startsWith("Cloud Verified") || emailStatus.startsWith("Google Gmail") ? "msg-ok" : "msg-err"} style={{ fontSize: ".9rem", marginTop: 6 }}>{emailStatus}</div>}
 
             <label>2 — Password</label>
             <div style={{ display: "flex", gap: 8 }}>
@@ -153,12 +165,12 @@ export default function AuthScreen({ onLogin }) {
           </form>
 
           <button className="btn" type="button" style={{ width: "100%", marginTop: 12, background: "#0f766e", color: "#fff" }}
-            onClick={() => setMsg("Real Google sign-in ke liye Supabase me Google OAuth lagana hoga (README — Step 5). Tab tak Gmail se Register/Login karein.")}>
+            onClick={handleGoogle}>
             G Continue with Google
           </button>
           <p style={{ textAlign: "center" }}>New here? <button type="button" style={{ background: "none", border: "none", color: "#b3261e", fontWeight: 700 }} onClick={() => setMode("register")}>Create a free account</button></p>
-          <p style={{ textAlign: "center", fontSize: ".85rem", color: "#5c5c55" }}>🔒 Secure, encrypted login</p>
-          <p style={{ fontSize: ".85rem", color: "#5c5c55" }}>Note: kisi mail ki asli ownership ki poori tasdeeq sirf Google sign-in ya mail par aaye code se hoti hai. Ye page format + Cloud Verify (MX) check karta hai.</p>
+          <p style={{ textAlign: "center", fontSize: ".85rem", color: "#5c5c55" }}>Secure, encrypted login</p>
+          <p style={{ fontSize: ".85rem", color: "#5c5c55" }}>Note: Google se login karne par aapki Gmail khud verify ho jati hai. Agar Google button error de, to Supabase Dashboard &gt; Authentication &gt; Providers &gt; Google ON karein, phir dobara try karein.</p>
         </div>
       </div>
     </div>

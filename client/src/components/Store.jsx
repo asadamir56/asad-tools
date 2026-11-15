@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { PRODUCTS, CATEGORIES, DURATIONS, WHATSAPP_LINK, EASYPAISA_NUMBER, EASYPAISA_NAME } from "../data/products.js";
+import { PRODUCTS, CATEGORIES, DURATIONS, WHATSAPP_LINK, WHATSAPP_NUMBER } from "../data/products.js";
 import ProductCard from "./ProductCard.jsx";
 
 export default function Store({ user, onLogout }) {
@@ -29,7 +29,7 @@ export default function Store({ user, onLogout }) {
         <h2 style={{ margin: 0 }}>Khush Aamdeed, {user?.name || "Guest"}</h2>
         <button className="btn btn-outline" onClick={onLogout}>Logout</button>
       </div>
-      <p>40 products — real brand logos, WhatsApp order, Easypaisa payment. Koi stock nahi dikhaya jata.</p>
+      <p>69 products — real brand logos, WhatsApp order. Koi stock nahi dikhaya jata.</p>
 
       <input className="search" placeholder="Search — Gemini, CapCut, Muse…" value={search} onChange={(e) => setSearch(e.target.value)} />
 
@@ -55,15 +55,13 @@ export default function Store({ user, onLogout }) {
       </div>
 
       <div className="card" style={{ marginTop: 24 }}>
-        <h3>Easypaisa Payment</h3>
-        <p><b>Easypaisa:</b> {EASYPAISA_NUMBER} — {EASYPAISA_NAME}</p>
-        <p>Order ke baad payment karein aur screenshot WhatsApp par bhejein.</p>
-        <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer"><button className="btn btn-green">WhatsApp: {EASYPAISA_NUMBER}</button></a>
+        <h3>Order on WhatsApp</h3>
+        <p>Order karein aur payment details WhatsApp par lein.</p>
+        <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer"><button className="btn btn-green">WhatsApp: {WHATSAPP_NUMBER}</button></a>
       </div>
       <div className="card" style={{ marginTop: 16 }}>
         <h3>Account, Login aur Email Check</h3>
-        <p>Register: Email (1st) → Password (2nd) → Naam (3rd) → WhatsApp (4th). Gmail check + Cloud Verify (MX) se domain verify hota hai. Login sirf registered email/number + sahi password se hota hai.</p>
-        <p><b>Note:</b> Kisi mail ki asli ownership ki poori tasdeeq sirf Google sign-in ya mail par aaye code se hoti hai. Real Google sign-in ke liye Supabase me Google OAuth credentials lagane honge (README dekhein) — ye page us ko fake nahi karta.</p>
+        <p>Register: Email (1st) → Password (2nd) → Naam (3rd) → WhatsApp (4th). Gmail check + Cloud Verify (MX) se domain verify hota hai. Login sirf registered email/number + sahi password se hota hai. Google se login bhi available hai — Google button se sign in karein.</p>
       </div>
     </div>
   );
